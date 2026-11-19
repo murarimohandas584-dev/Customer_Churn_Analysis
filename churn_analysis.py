@@ -392,27 +392,27 @@ print(f"Model Accuracy: {accuracy:.2f}")
 # Accuracy alone isn't enough for a churn project.
 # We also want to know: Which customers did the model correctly or incorrectly classify?
 
-# from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 # Two tools are imported:
 # confusion_matrix → calculates the actual vs predicted results.
 # ConfusionMatrixDisplay → displays those results as a chart.
-# cm = confusion_matrix(y_test, y_pred)
-# disp = ConfusionMatrixDisplay(
-#     confusion_matrix=cm,
-#     display_labels=["No Churn", "Churn"]
-# )
-# disp.plot(cmap="coolwarm")
+cm = confusion_matrix(y_test, y_pred)
+disp = ConfusionMatrixDisplay(
+    confusion_matrix=cm,
+    display_labels=["No Churn", "Churn"]
+)
+disp.plot(cmap="coolwarm")
 # This creates the visual confusion matrix.
 # cmap="coolwarm" controls the color scheme of the matrix.
-# plt.title("Confusion Matrix")
-# plt.tight_layout()
+plt.title("Confusion Matrix")
+plt.tight_layout()
 
-# plt.savefig(
-#     "output/confusion_matrix.png",
-#     dpi=300,
-#     bbox_inches="tight"
-# )
-# plt.show()
+plt.savefig(
+    "output/confusion_matrix.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+plt.show()
 
 # Easy way to remember
 #                   MODEL PREDICTION
@@ -442,8 +442,8 @@ print(f"Model Accuracy: {accuracy:.2f}")
 # F1-score
 # Support
 
-# from sklearn.metrics import classification_report
-# print(classification_report(y_test, y_pred))
+from sklearn.metrics import classification_report
+print(classification_report(y_test, y_pred))
 
 # sklearn.metrics contains functions for measuring model performance.
 # classification_report is one of those functions.
